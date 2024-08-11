@@ -16,22 +16,44 @@ union (x:xs) ys
   | member x ys = union xs ys
   | otherwise   = x : union xs ys
 
+-- intersection:: [Int] -> [Int] -> [Int]
+-- -- Me fijo si una lista esta vacia devuelvo otra lista vacia
+-- intersection [] _ = []
+-- -- Agarro un elemento de la primera lista
+-- intersection (x:xs) ys =
+--   -- Si es miembro de la segunda lista lo concateno con la interseccion del resto de la primera lista con la segunda
+--   if member x ys then x : intersection xs ys
+--   -- Sino sigo con el resto de la lista
+--   else intersection xs ys
+
 intersection:: [Int] -> [Int] -> [Int]
-
--- Me fijo si una lista esta vacia devuelvo otra lista vacia
 intersection [] _ = []
-
--- Agarro un elemento de la primera lista
 intersection (x:xs) ys =
-
-  -- si es miembro de la segunda lista lo concateno con la interseccion del resto de la primera lista con la segunda
   if member x ys then x : intersection xs ys
-
-  -- sino sigo con el resto de la lista
   else intersection xs ys
 
-difference:: [Int] -> [Int] -> [Int]
-difference  = error "Implement it"
+
+-- difference:: [Int] -> [Int] -> [Int]
+-- -- Si la segunda lista esta vacia devuelvo la primera
+-- difference xs [] = a
+-- difference [] ys = []
+-- -- Si las listas son iguales devolver una lista vacia 
+-- difference _ _ = []
+-- -- Agarro un elemento de y y me fijo si pertenece a 
+-- difference (x:xs) ys = 
+--   -- Si el elemento de la segunda lista es parte de la primera entonces seguir
+--   if member x ys then difference xs ys
+--   -- Si no es parte entonces agregar x a la lista y seguir con 
+--   else  x : difference xs ys
+
+
+difference :: [Int] -> [Int] -> [Int]
+difference [] _ = []
+difference xs [] = xs
+difference (x:xs) ys = 
+  if member x ys then difference xs ys  
+  else x : difference xs ys
+
 
 insert:: Int -> [Int] -> [Int]
 insert = error "Implement it"
