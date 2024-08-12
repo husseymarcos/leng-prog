@@ -43,14 +43,11 @@ binaryToDecimal :: [Int] -> Int
 binaryToDecimal [] = 0
 binaryToDecimal (x:xs) = x * 2 ^ length xs + binaryToDecimal xs
 
-
-reverseList :: [Int] -> [Int]
-reverseList [] = []
-reverseList (x:xs) =
-  reverseList xs ++ [x]
-
 toDecimal :: Int -> [Int] -> Int
-toDecimal = error "Implement it"
+toDecimal _ [] = 0
+toDecimal x (y:ys) = 
+  y * x ^ length ys + toDecimal x ys
+
 
 toDec::Int -> String -> Int
 toDec base s = error "Implement it"
