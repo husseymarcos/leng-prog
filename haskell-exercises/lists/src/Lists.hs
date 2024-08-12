@@ -50,20 +50,25 @@ intersection (x:xs) ys =
 difference :: [Int] -> [Int] -> [Int]
 difference [] _ = []
 difference xs [] = xs
-difference (x:xs) ys = 
-  if member x ys then difference xs ys  
+difference (x:xs) ys =
+  if member x ys then difference xs ys
   else x : difference xs ys
 
 
 insert:: Int -> [Int] -> [Int]
 insert x [] = [x]
-insert x (y:ys) = 
+insert x (y:ys) =
   if x >= y then y : insert x ys
   else  x : y : ys
 
 
+-- Usando foldr
 insertionSort :: [Int] -> [Int]
-insertionSort = error "Implement it"
+insertionSort = foldr insert []
+
+-- insertionSort :: [Int] -> [Int]
+-- insertionSort [] = []
+-- insertionSort (x:xs) = insert x (insertionSort xs)
 
 binaryToDecimal :: [Int] -> Int
 binaryToDecimal = error "Implement it"
