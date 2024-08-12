@@ -50,7 +50,7 @@ toDecimal x (y:ys) =
 
 
 toDec::Int -> String -> Int
-toDec base s = error "Implement it"
+toDec base s = foldl (\acc x -> acc * base + x) 0 (map digitToInt s)
 
 -- Same as `toDec` But use a list comprehension
 
