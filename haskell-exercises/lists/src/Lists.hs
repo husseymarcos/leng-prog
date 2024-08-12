@@ -55,10 +55,10 @@ toDec base s = foldl (\acc x -> acc * base + x) 0 (map digitToInt s)
 -- Same as `toDec` But use a list comprehension
 
 decimal::Int -> String -> Int
-decimal  = error "Implement it"
+decimal base s = sum [digitToInt x * base ^ i | (x, i) <- zip (reverse s) [0..]]
 
 firsts::[a] -> [[a]]
-firsts = error "Implement it"
+firsts xs = [take n xs | n <- [1..length xs]]
 
 -- Given two String that represents numbers in binary implement the 'binaryAdd' function
 -- DO NOT USE a predefined '+' operation
