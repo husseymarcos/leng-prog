@@ -56,7 +56,11 @@ difference (x:xs) ys =
 
 
 insert:: Int -> [Int] -> [Int]
-insert = error "Implement it"
+insert x [] = [x]
+insert x (y:ys) = 
+  if x >= y then y : insert x ys
+  else  x : y : ys
+
 
 insertionSort :: [Int] -> [Int]
 insertionSort = error "Implement it"
