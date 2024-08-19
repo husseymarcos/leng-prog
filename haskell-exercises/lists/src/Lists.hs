@@ -65,3 +65,10 @@ firsts xs = [take n xs | n <- [1..length xs]]
 
 binaryAdd::String -> String -> String
 binaryAdd  = error "Implement it"
+
+
+multiply :: Int -> Int -> Int
+multiply x y = x*y
+
+triple :: Int -> Int
+triple = multiply 3
